@@ -15,6 +15,11 @@
   <%= link_to 'home', root_path %> -->
   <!--  THE CODE below links to the layouts partial-->
   <%= render 'layouts/header' %>
+
+  <!--  The below is reqyured for the flash messages as shoujld be required by Devise-->
+  <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+  <% end %>
   <div class="container">
     <%= yield %>
   </div>
